@@ -6,13 +6,13 @@ import { Task } from './tasks.model';
 export class TasksController {
   constructor(private taskService: TasksService) {}
 
-  // test the api for creating a task
+  // creating a task
   @Post('createTask')
-  async createTask() {
-    return 'I am creating a new tasks';
+  createTask(): Task {
+    return this.taskService.createTask('Come home', 'Not later than today');
   }
 
-  // test the api for getting all tasks
+  // getting all tasks
   @Get('allTasks')
   async getAllTasks(): Promise<Task[]> {
     return this.taskService.getAllTasks();
